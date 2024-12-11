@@ -11,7 +11,7 @@ import ShapesMenu from "./ShapesMenu";
 import ActiveUsers from "./Users/ActiveUsers";
 import { NewThread } from "./comments/NewThread";
 
-  const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveElement, onBringForward, onBringBackward, selectedObject }: NavbarProps) => {
+  const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveElement }: NavbarProps) => {   // onBringForward, onBringBackward, selectedObject
   const isActive = (value: string | Array<ActiveElement>) =>
     (activeElement && activeElement.value === value) ||
     (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
@@ -67,7 +67,7 @@ import { NewThread } from "./comments/NewThread";
         ))}
       </ul>
 
-      <div className="flex items-center gap-3">
+      {/* <div className="flex items-center gap-3">
         <Button 
           onClick={onBringForward} 
           className="bg-primary-green hover:bg-primary-green-dark text-white"
@@ -82,7 +82,7 @@ import { NewThread } from "./comments/NewThread";
         >
           Bring Backward
         </Button>
-      </div>
+      </div> */}
       <ActiveUsers />
     </nav>
   );
