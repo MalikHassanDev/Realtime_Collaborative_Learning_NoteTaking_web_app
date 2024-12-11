@@ -1,0 +1,17 @@
+// import { prototype } from 'events';
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "liveblocks.io",
+        port: "",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+
