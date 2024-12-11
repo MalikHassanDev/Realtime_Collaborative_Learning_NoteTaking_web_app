@@ -5,12 +5,12 @@ import { config } from 'process';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ///////
-  webpack: (config)=> {
-    config.external.push({
-      "utf-8-validate": "commonjs utf-8-validate",
-      "bufferutil": "commonjs bufferutil",
-      canvas: "commonjs canvas"
-    })
+  webpack: function (config) {
+    config.externals = config.externals || {};
+    config.externals["utf-8-validate"] = "commonjs utf-8-validate";
+    config.externals["bufferutil"] = "commonjs bufferutil";
+    config.externals["canvas"] = "commonjs canvas";
+
     return config;
   },
   ///////
