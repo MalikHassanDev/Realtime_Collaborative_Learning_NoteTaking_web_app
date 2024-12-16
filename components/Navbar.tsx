@@ -17,8 +17,9 @@ import { NewThread } from "./comments/NewThread";
     (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
 
   return (
-    <nav className="flex select-none items-center justify-between gap-4 pt-5 bg-primary-black px-5 text-white">
-      <Image src="/assets/logo.svg" alt="learning Logo" width={58} height={20} />
+    <nav className="flex select-none items-center justify-between gap-4 py-5 bg-primary-black px-5 text-white">
+      {/* <Image src="/assets/RCSANA.png" alt="RCSANA Logo" width={59} height={20} /> */}
+      <div className="flex flex-row items-center justify-center gap-2"><img src="/assets/FAVICON.svg" alt="RCSANA"  width={30} height={10}/><h1 className="font-bold text-white ">RCSANA</h1></div>
 
       <ul className="flex flex-row">
         {navElements.map((item: ActiveElement | any) => (

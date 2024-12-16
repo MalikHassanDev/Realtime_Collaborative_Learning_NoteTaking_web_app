@@ -17,8 +17,9 @@ export function Room({ children }: { children: ReactNode }) {
         canvasObjects: new LiveMap()
     }}
     >
-      <ClientSideSuspense fallback={<div className="h-[100vh] w-full flex justify-center items-center text-center">
-        <h1 className="font-2xl text-white "><LoaderPinwheel/></h1></div>}>
+      <ClientSideSuspense fallback={<div className="h-[100vh] w-full flex justify-center flex-col items-center text-center">
+        <h1 className="font-4xl text-white font-bold">RCSANA</h1>
+        <h1 className="font-2xl text-white"><LoaderPinwheel/></h1><i className="font-5xl text-white">Develop By M.Hassan & Muzamil Sultan</i></div>}>
         {() => children}
       </ClientSideSuspense>
     </RoomProvider>

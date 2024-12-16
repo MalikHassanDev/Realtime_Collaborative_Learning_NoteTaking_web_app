@@ -2,8 +2,8 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 
 const dimensionsOptions = [
-  { label: "W", property: "width" },
-  { label: "H", property: "height" },
+  { label: "Width", property: "width" },
+  { label: "Height", property: "height" },
 ];
 
 type Props = {
@@ -15,6 +15,7 @@ type Props = {
 
 const Dimensions = ({ width, height, isEditingRef, handleInputChange }: Props) => (
   <section className='flex flex-col border-b border-primary-grey-200'>
+    <h2 className='p-3 uppercase'>Dimensions</h2>
     <div className='flex flex-col gap-4 px-6 py-3'>
       {dimensionsOptions.map((item) => (
         <div

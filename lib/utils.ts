@@ -124,7 +124,7 @@ export const exportToPdf = (notepadContent: string) => {
   doc.addPage();
 
   // Add the notepad content on the new page
-  doc.text(notepadContent, 10, 10);
+  doc.text(notepadContent, 30, 30);
 
   // download the pdf
   doc.save("canvas_with_notes.pdf");

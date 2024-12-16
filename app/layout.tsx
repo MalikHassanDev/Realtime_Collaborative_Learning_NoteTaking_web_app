@@ -11,8 +11,8 @@ const workSans = Work_Sans(
   });
 
 export const metadata: Metadata = {
-  title: "Learning Pro",
-  description: "Realtime Collaberative learning and Notetaking Using Fabric.js and LiveBlocks for realtime",
+  title: "RCSANA For Students",
+  description: "Realtime Collaberative Study and Notetaking Using Fabric.js and LiveBlocks for realtime",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <body className={`${workSans.className} bg-primary-grey-200 p-`}>
+       <body className={`${workSans.className} bg-slate-500`}>
           <Room>            
             {children}
           </Room>

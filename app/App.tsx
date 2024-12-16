@@ -29,8 +29,20 @@ export default function Page() {
   const isEditingRef= useRef(false);
   // const [selectedObject, setSelectedObject] = useState<fabric.Object | null>(null);
 
+// allow data to save in key value store and auto sync to other users basically update data(root readonly)
+  const canvasObjects = useStorage((root) => root.canvasObjects) 
+  
 
-  const canvasObjects = useStorage((root) => root.canvasObjects)
+  const syncShapeInStorage = useMutation(({ storage }, object) => {
+    if (!object) return;
+    const { objectId } = object; // destructure objectid from object
+
+    const shapeData = object.toJSON(); //turn fabic abj into jsn format so we can store in key walue store
+    shapeData.objectId = objectId;
+    const canvasObjects = storage.get('canvasObjects'); // pull existing objects from storage  
+
+    canvasObjects.set(objectId, shapeData);//updatee storage with new shapes deta
+  }, []);
 
   const [elementAttributes, setElementAttributes] = useState<Attributes>({
     width: '',
@@ -41,18 +53,6 @@ export default function Page() {
     fill: '#aabbcc',
     stroke: '#aabbcc',
   })
-
-  const syncShapeInStorage = useMutation(({ storage }, object) => {
-    if (!object) return;
-    const { objectId } = object;
-
-    const shapeData = object.toJSON();
-    shapeData.objectId = objectId;
-    const canvasObjects = storage.get('canvasObjects');
-
-    canvasObjects.set(objectId, shapeData);
-  }, []);
-
 
 
   const [activeElement, setActiveElement] = useState<ActiveElement>({
@@ -65,7 +65,7 @@ export default function Page() {
     const canvasObjects = storage.get('canvasObjects')
 
     if (!canvasObjects || canvasObjects.size === 0)
-      return true;
+      return true; //deleted 
 
     for (const [key, value] of canvasObjects.entries()) {
       canvasObjects.delete(key);
@@ -108,6 +108,7 @@ export default function Page() {
   // handle leftsidebar canvas element selection 
   const handleSelectCanvasElement = (objectId: string) => {
     if (!fabricRef.current) return;
+    // @ts-ignore
     const object = fabricRef.current.getObjects().find(obj => obj.objectId === objectId);
     if (object) {
       fabricRef.current.setActiveObject(object);
@@ -181,7 +182,7 @@ export default function Page() {
     })
     
     window.addEventListener("resize", () => {
-      handleResize({ fabricRef })
+      handleResize({ canvas: fabricRef.current })  //canvas: fabricRef.current
     })
 
     window.addEventListener("keydown", (e: any) => {
@@ -250,9 +251,7 @@ export default function Page() {
 
 
   return (
-
-
-    <main className="h-screen overflow-hidden">
+    <main className="h-screen overflow-auto">
       <Navbar
         activeElement={activeElement}
         handleActiveElement={handleActiveElement}
@@ -272,7 +271,7 @@ export default function Page() {
       />
       <section className="flex h-full flex-row">
         <LeftSidebar allShapes={Array.from(canvasObjects)} onSelect={handleSelectCanvasElement} />
-        <Live canvasRef={canvasRef} undo={undo} redo={redo}/>
+        <Live canvasRef={canvasRef} undo={undo} redo={redo}/>  
         <RightSideBar 
         elementAttributes ={elementAttributes}
         setElementAttributes={setElementAttributes}

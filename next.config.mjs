@@ -14,7 +14,7 @@ const nextConfig = {
     return config;
   },
   ///////
-    images: {
+  images: {
     remotePatterns: [
       {
         protocol: "https",
