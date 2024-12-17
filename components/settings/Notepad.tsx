@@ -58,15 +58,19 @@ const Notepad: React.FC<NotepadProps> = ({ content, setContent }) => {
         <button className='p-2 hover:bg-slate-500 rounded-s-lg' onClick={() => applyStyle('bold')}><b>B</b></button>
         <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('italic')}><i>I</i></button>
         <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('underline')}><u>U</u></button>
+        <div>
         <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('justifyLeft')}>Left</button>
         <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('justifyCenter')}>Center</button>
         <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('justifyRight')}>Right</button>
-        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('foreColor', 'red')}>Red</button>
+        </div>
+        {/* <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('foreColor', 'red')}>Red</button>
         <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('foreColor', 'blue')}>Blue</button>
-        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('foreColor', 'white')}>white</button>
-        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('fontSize', '1')}>Small</button>
-        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('fontSize', '3')}>Normal</button>
-        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('fontSize', '5')}>Large</button>
+        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('foreColor', 'white')}>white</button> */}
+        <div>
+        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('fontSize', '1')}>S</button>
+        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('fontSize', '3')}>M</button>
+        <button className='p-2 hover:bg-slate-500 ' onClick={() => applyStyle('fontSize', '5')}>L</button>
+        </div>
       </div>
       <div
         ref={editorRef}

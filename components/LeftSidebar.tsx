@@ -6,7 +6,7 @@ const LeftSidebar = ({ allShapes, onSelect }: { allShapes: Array<any>, onSelect:
   // memoize the result of this function so that it doesn't change on every render but only when there are new shapes
   const memoizedShapes = useMemo(
     () => (
-      <section className="flex flex-col border-t border-primary-grey-200 bg-slate-800 text-primary-grey-300 min-w-[227px] sticky left-0 h-full max-sm:hidden select-none overflow-y-auto pb-20">
+      <section className="flex flex-col border-t border-primary-grey-200  bg-primary-black text-primary-grey-300 max-w-[220px] sticky left-0 h-[177vh] max-sm:hidden select-none overflow-y-auto pb-20">
         <h3 className="border border-primary-grey-200 px-5 py-4 text-xs uppercase">Layers</h3>
         <div className="flex flex-col">
           {allShapes?.map((shape: any) => {
@@ -15,7 +15,7 @@ const LeftSidebar = ({ allShapes, onSelect }: { allShapes: Array<any>, onSelect:
             return (
               <div
                 key={shape[1]?.objectId}
-                className="group my-1 flex items-center gap-2 px-5 py-2.5 hover:cursor-pointer hover:bg-primary-green hover:text-primary-black"
+                className="group my-1 flex items-center gap-2 px-5 py-2.5 hover:cursor-pointer hover:bg-yellow-100 hover:text-primary-black"
                 onClick={() => onSelect(shape[1]?.objectId)} // Call onSelect with the objectId
               >
                 <Image

@@ -10,7 +10,7 @@ const Export: React.FC<ExportProps> = ({ notepadContent }) => (
     <h3 className='text-[10px] uppercase'>Export</h3>
     <Button
       variant='outline'
-      className='w-full border border-primary-grey-100 hover:bg-primary-green hover:text-primary-black'
+      className='w-full border border-primary-grey-100 hover:bg-yellow-100 hover:text-primary-black'
       onClick={() => exportToPdf(notepadContent)}
     >
       Export to PDF

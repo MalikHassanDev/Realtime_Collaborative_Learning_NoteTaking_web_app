@@ -17,7 +17,7 @@ import { NewThread } from "./comments/NewThread";
     (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
 
   return (
-    <nav className="flex select-none items-center justify-between gap-4 py-5 bg-primary-black px-5 text-white">
+    <nav className="flex select-none items-center h-[65px] justify-between gap-4 py-5 bg-primary-black px-5 text-white">
       {/* <Image src="/assets/RCSANA.png" alt="RCSANA Logo" width={59} height={20} /> */}
       <div className="flex flex-row items-center justify-center gap-2"><img src="/assets/FAVICON.svg" alt="RCSANA"  width={30} height={10}/><h1 className="font-bold text-white ">RCSANA</h1></div>
 
@@ -30,7 +30,7 @@ import { NewThread } from "./comments/NewThread";
               handleActiveElement(item);
             }}
             className={`group px-2.5 py-5 flex justify-center items-center
-            ${isActive(item.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}
+            ${isActive(item.value) ? "bg-yellow-100" : "hover:bg-primary-grey-200"}
             `}
           >
             {/* If value is an array means it's a nav element with sub options i.e., dropdown */}

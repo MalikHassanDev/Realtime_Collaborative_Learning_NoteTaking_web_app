@@ -37,10 +37,10 @@ export const RightSideBar = ({
   };
 
   return (
-    <section className='flex flex-col border-t border-primary-grey-200 bg-primary-black text-primary-grey-300 min-2-[327px] sticky right-0 h-auto max-sm:hidden select-none'>
+    <section className='flex flex-col border-t border-primary-grey-200 bg-primary-black text-primary-grey-300 w-[225px] sticky right-0 h-full max-sm:hidden select-none'>
       <h2 className='px-5 pt-4 textxs uppercase'>Design</h2>
       <span className='text-xs text-primary-grey-300 mt-3 px-5 border-b border-primary-grey-200 pb-4'>Modify the Changes</span>
-
+      <div className='overflow-y-auto overflow-x-hidden' style={{ maxHeight: '400px' }}>
       <Dimensions 
         width={elementAttributes.width}
         height={elementAttributes.height}
@@ -69,6 +69,7 @@ export const RightSideBar = ({
       />
       <Notepad content={notepadContent} setContent={setNotepadContent}  />
       <Export notepadContent={notepadContent} />
+      </div>
     </section>
   );
 };

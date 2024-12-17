@@ -251,7 +251,7 @@ export default function Page() {
 
 
   return (
-    <main className="h-screen overflow-auto">
+    <main className="h-screen overflow-hidden">
       <Navbar
         activeElement={activeElement}
         handleActiveElement={handleActiveElement}
